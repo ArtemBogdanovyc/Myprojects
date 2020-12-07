@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class ValidPassword {
 	private int password;
 	Scanner in;
-	public ValidPassword(int password){
+		public ValidPassword(int password){
 		this.password=password;
 		in=new Scanner(System.in);
+		
 	}
 public void equalPasswods() {
 	int passScan=in.nextInt();
