@@ -9,6 +9,7 @@ private String[] strings;
 Scanner scan;
 private int indMax=0;
 private int indMin=0;
+private String buf;
 public WorkRithString(int quantity) {
 	this.quantity=quantity;
 	this.indMax=indMax;
@@ -16,7 +17,7 @@ public WorkRithString(int quantity) {
 	strings=new String[quantity];
 	scan= new Scanner(System.in);
 }
-public void getStrings() {
+public String[] getStrings() {
 	for (int i=0; i<strings.length ; i++) {
 		strings[i]=scan.next();
 		if(strings[i].length()<strings[indMin].length()) {
@@ -29,5 +30,7 @@ public void getStrings() {
 	System.out.println( strings[indMax]);
 	System.out.println( strings[indMin].length());
 	System.out.println( strings[indMax].length());
+	return strings;
 	}
 }
+
