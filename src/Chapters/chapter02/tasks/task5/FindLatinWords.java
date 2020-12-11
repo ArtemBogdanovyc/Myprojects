@@ -10,34 +10,30 @@ import java.util.regex.Pattern;
 public class FindLatinWords {
 private int quantity;
 private String[] strings;
-private List<String> latinWords;
 char[] latinLaters; 
 Scanner scan;
 Pattern latinPattern;
 Matcher latinMatcher;
-public FindLatinWords(int quantity) {
-    strings= new String[quantity];
-	latinWords= new ArrayList<String>();
-	scan= new Scanner(System.in);
+public FindLatinWords() {
+    scan= new Scanner(System.in);
 	latinPattern= Pattern.compile("[a-z]+");
+	
+}
+public void findLatin(int quantity) {
+	strings= new String[quantity];
 	for(int i=0; i<strings.length;i++) {
 		strings[i]=scan.next();
 	}
-}
-public List<String> findLatin(String[] str) {
-	for(int i=0;i<str.length;i++) {
-		latinMatcher=latinPattern.matcher(str[i].toLowerCase());
+	List<String> latinWords =new ArrayList<String>();;
+	for(int j=0;j<strings.length;j++) {
+		latinMatcher=latinPattern.matcher(strings[j].toLowerCase());
 		if(latinMatcher.matches()) {
-			latinWords.add(str[i]);
+			latinWords.add(strings[j]);
 		}
 	}
-	return latinWords;
-}
-public void findWords() {
-	List<String>wordsInLatin=findLatin(strings);
-int vowelsCount;
+	int vowelsCount;
 	int consonantsCount;
-	for(String latin: wordsInLatin) {
+	for(String latin: latinWords) {
 		vowelsCount=latin.replaceAll("[^aeiou]", "").length();
 		consonantsCount=latin.replaceAll("[aeiou]", "").length();
 		if(vowelsCount==consonantsCount) {
@@ -45,5 +41,6 @@ int vowelsCount;
 	     
 		}
 	}
+	
 }
 }

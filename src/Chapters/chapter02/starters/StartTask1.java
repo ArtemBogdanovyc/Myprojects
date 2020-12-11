@@ -21,8 +21,8 @@ public class StartTask1 {
 //average.getAverage();
 	//	FindString find= new FindString(4);
 		//find.getShortString();
-		FindLatinWords latinW  = new FindLatinWords(5);
-		//latinW.findLatin();
-	latinW.findWords();
+		FindLatinWords latinW  = new FindLatinWords();
+		latinW.findLatin(4);
+	//latinW.findWords();
 	}
 }
